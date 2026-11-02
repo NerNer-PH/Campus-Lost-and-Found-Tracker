@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package campusLostAndFoundTracker;
 
 import campusLostAndFoundTracker.RecordLinkedList.Node;
@@ -11,10 +7,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.io.IOException;
 
-/**
- *
- * @author Lenovo
- */
 public class LostAndFoundApp extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LostAndFoundApp.class.getName());
@@ -571,6 +563,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         claimedBtn.setForeground(new java.awt.Color(255, 255, 255));
         claimedBtn.setText("Mark as Claimed");
         claimedBtn.setPreferredSize(new java.awt.Dimension(185, 30));
+        claimedBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                claimedBtnActionPerformed(evt);
+            }
+        });
         jPanel29.add(claimedBtn);
 
         unclaimedBtn.setBackground(new java.awt.Color(102, 102, 102));
@@ -578,6 +575,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         unclaimedBtn.setForeground(new java.awt.Color(255, 255, 255));
         unclaimedBtn.setText("Mark as Unclaimed");
         unclaimedBtn.setPreferredSize(new java.awt.Dimension(185, 30));
+        unclaimedBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unclaimedBtnActionPerformed(evt);
+            }
+        });
         jPanel29.add(unclaimedBtn);
 
         removeBtn.setBackground(new java.awt.Color(204, 0, 0));
@@ -585,6 +587,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         removeBtn.setForeground(new java.awt.Color(255, 255, 255));
         removeBtn.setText("Remove Record");
         removeBtn.setPreferredSize(new java.awt.Dimension(185, 30));
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeBtnActionPerformed(evt);
+            }
+        });
         jPanel29.add(removeBtn);
 
         recordPage.add(jPanel29);
@@ -625,8 +632,6 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         table.setDefaultEditor(Object.class, null);
         table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        searchBtn.addActionListener(evt -> refreshTable());
-
         searchBarTxt.getDocument().addDocumentListener(new DocumentListener() {
             public void insertUpdate(DocumentEvent e) {
             }
@@ -642,16 +647,54 @@ public class LostAndFoundApp extends javax.swing.JFrame {
             }
         });
 
-        claimedBtn.addActionListener(evt -> markSelectedAsClaimed());
-        unclaimedBtn.addActionListener(evt -> markSelectedAsUnclaimed());
-        removeBtn.addActionListener(evt -> removeSelectedRecord());
+        setPlaceholder(searchBarTxt, SEARCH_PLACEHOLDER);
+        setPlaceholder(itemNameTxt, "e.g. Black umbrella");
+        setPlaceholder(locationFoundTxt, "e.g. Library, SC Building");
+        setPlaceholder(dateFoundTxt, "MM-DD-YYYY (e.g. 11-02-2026)");
+        refreshTable();
+        refreshDashboard();
 
+    }
+
+    //PlaceHolder Code
+    private void setPlaceholder(javax.swing.JTextField field, String placeholder) {
+        field.putClientProperty("placeholder", placeholder);
+        showPlaceholder(field);
+
+        field.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (getRealText(field).isEmpty()) {
+                    field.setText("");
+                    field.setForeground(java.awt.Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (field.getText().trim().isEmpty()) {
+                    showPlaceholder(field);
+                }
+            }
+        });
+    }
+
+    private void showPlaceholder(javax.swing.JTextField field) {
+        field.setText((String) field.getClientProperty("placeholder"));
+        field.setForeground(java.awt.Color.GRAY);
+    }
+
+    private String getRealText(javax.swing.JTextField field) {
+        String placeholder = (String) field.getClientProperty("placeholder");
+        String text = field.getText().trim();
+        return text.equals(placeholder) ? "" : text;
     }
 
     private String getSearchKeyword() {
-        return searchBarTxt.getText().trim();
+        return getRealText(searchBarTxt);
     }
 
+    //for REFRESH
     private void refreshTable() {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
@@ -683,6 +726,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
     }
 
+    //for FUNCTIONING RECORD PAGE
     private void saveRecords() {
         try {
             records.saveToFile(FILE_PATH);
@@ -739,7 +783,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
             return;
 
         }
-        
+
         node.status = "Unclaimed";
         node.claimedBy = "-";
         saveRecords();
@@ -754,7 +798,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
             return;
         }
-        int choice = JOptionPane.showConfirmDialog(this, "Remove record#" + id + "? This cannot be undone.", "Confirm removal", JOptionPane.YES_OPTION);
+        int choice = JOptionPane.showConfirmDialog(this, "Remove record#" + id + "? This cannot be undone.", "Confirm removal", JOptionPane.YES_NO_OPTION);
         if (choice != JOptionPane.YES_OPTION) {
 
             return;
@@ -766,12 +810,14 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         refreshDashboard();
     }
 
+    //FUNCTIONING BUTTONS
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         parentPanel.removeAll();
         parentPanel.add(dashboardPage);
         parentPanel.repaint();
         parentPanel.revalidate();
+        refreshDashboard();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -784,6 +830,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         parentPanel.removeAll();
         parentPanel.add(recordPage);
+        refreshTable();
         parentPanel.repaint();
         parentPanel.revalidate();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -793,9 +840,9 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     }//GEN-LAST:event_itemNameTxtActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String name = itemNameTxt.getText();
-        String location = locationFoundTxt.getText();
-        String date = dateFoundTxt.getText();
+        String name = getRealText(itemNameTxt);
+        String location = getRealText(locationFoundTxt);
+        String date = getRealText(dateFoundTxt);
 
         if (name.isEmpty() || location.isEmpty() || date.isEmpty()) {
 
@@ -805,21 +852,44 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         }
         if (!isValidDate(date)) {
 
-            JOptionPane.showMessageDialog(this, "Invalid date. Use MM-DD-YYYY (e.g. 11-02-2026)", "Invalid Date", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Invalid date. Use MM-DD-YYYY (e.g. 11-02-2026) | Note: Input only Date Before.", "Invalid Date", JOptionPane.WARNING_MESSAGE);
             return;
 
         }
+
+        records.add(name, location, date);
+        saveRecords();
+
+        showPlaceholder(itemNameTxt);
+        showPlaceholder(locationFoundTxt);
+        showPlaceholder(dateFoundTxt);
+
+        refreshTable();
+        refreshDashboard();
+        JOptionPane.showMessageDialog(this, "Record added successfully");
 
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void searchBarTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarTxtActionPerformed
-        // TODO add your handling code here:
+        refreshTable();
     }//GEN-LAST:event_searchBarTxtActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        // TODO add your handling code here:
+        refreshTable();
     }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void claimedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claimedBtnActionPerformed
+        markSelectedAsClaimed();
+    }//GEN-LAST:event_claimedBtnActionPerformed
+
+    private void unclaimedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unclaimedBtnActionPerformed
+        markSelectedAsUnclaimed();
+    }//GEN-LAST:event_unclaimedBtnActionPerformed
+
+    private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+        removeSelectedRecord();
+    }//GEN-LAST:event_removeBtnActionPerformed
 
     private boolean isValidDate(String d) {
 
@@ -834,9 +904,6 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

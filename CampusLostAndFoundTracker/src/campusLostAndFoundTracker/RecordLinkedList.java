@@ -25,7 +25,7 @@ public class RecordLinkedList {
             this.itemName = itemName;
             this.location = location;
             this.date = date;
-            this.date = date;
+            this.status = status;
             this.claimedBy = claimedBy;
             this.next = null;
 
@@ -141,7 +141,7 @@ public class RecordLinkedList {
 
     private static boolean containsIgnoreCase(String text, String key) {
         int n = text.length();
-        int m = text.length();
+        int m = key.length();
         if (m == 0) {
             return true;
         }
