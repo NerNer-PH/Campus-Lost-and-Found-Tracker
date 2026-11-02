@@ -39,6 +39,7 @@ public class RecordLinkedList {
     public int getNextId() {
         return nextId;
     }
+    //ADD
 
     Node add(String itemNum, String location, String date) {
         Node newNode = new Node(nextId, sanitize(itemNum), sanitize(location),
@@ -88,6 +89,30 @@ public class RecordLinkedList {
             current = current.next;
         }
         return false;
+    }
+    //FIND
+    Node findById(int id){
+        Node current = head;
+        while (current !=null){
+            if (current.id == id) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
+    }
+    
+    int countByStatus(String status) {
+        int count = 0;
+        Node current = head;
+        while (current != null) {
+        if (current.Status.equals(status)) {
+            count++;
+                    
+        }
+        current = current.next;
+    }
+        return count;
     }
 }
 
