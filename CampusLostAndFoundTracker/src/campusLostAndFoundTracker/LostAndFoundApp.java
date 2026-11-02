@@ -642,7 +642,9 @@ public class LostAndFoundApp extends javax.swing.JFrame {
             }
         });
 
-        claimedBtn.addActionListener(evt -> markSelec);
+        claimedBtn.addActionListener(evt -> markSelectedAsClaimed());
+        unclaimedBtn.addActionListener(evt -> markSelectedAsUnclaimed());
+        removeBtn.addActionListener(evt -> removeSelectedRecord());
 
     }
 
@@ -701,7 +703,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
     private void markSelectedAsClaimed() {
         int id = getSelectedId();
-        if (id == 1) {
+        if (id == -1) {
             return;
         }
         Node node = records.findById(id);
@@ -725,8 +727,44 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         refreshDashboard();
 
     }
-    
-    
+
+    private void markSelectedAsUnclaimed() {
+
+        int id = getSelectedId();
+        if (id == -1) {
+            return;
+        }
+        Node node = records.findById(id);
+        if (node == null) {
+            return;
+
+        }
+        
+        node.status = "Unclaimed";
+        node.claimedBy = "-";
+        saveRecords();
+        refreshTable();
+        refreshDashboard();
+
+    }
+
+    private void removeSelectedRecord() {
+        int id = getSelectedId();
+        if (id == -1) {
+
+            return;
+        }
+        int choice = JOptionPane.showConfirmDialog(this, "Remove record#" + id + "? This cannot be undone.", "Confirm removal", JOptionPane.YES_OPTION);
+        if (choice != JOptionPane.YES_OPTION) {
+
+            return;
+
+        }
+        records.removeById(id);
+        saveRecords();
+        refreshTable();
+        refreshDashboard();
+    }
 
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
