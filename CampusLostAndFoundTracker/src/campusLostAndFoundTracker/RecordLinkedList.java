@@ -1,6 +1,8 @@
 package campusLostAndFoundTracker;
 
-import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class RecordLinkedList {
 
@@ -156,6 +158,20 @@ public class RecordLinkedList {
             current = current.next;
         }
         System.out.println("null");
+    }
+    //File Handling
+    void saveToFile(String path) throws IOException {
+        BufferedWriter out = new BufferedWriter(new FileWriter(path));
+        try {
+            Node current = head;           
+            while (current != null) {
+                out.write(current.id + "|" + current.itemName + "|" + current.location + "|" + current.date + "|" + current.status + "|" + current.claimedBy);
+                out.newLine();
+                current = current.next;
+            }
+        }finally{
+            out.close();
+        }
     }
 }
 
