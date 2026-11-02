@@ -10,7 +10,7 @@ public class RecordLinkedList {
         String itemName;
         String location;
         String date;
-        String Status;
+        String status;
         String claimedBy;
         Node next;
 
@@ -106,13 +106,47 @@ public class RecordLinkedList {
         int count = 0;
         Node current = head;
         while (current != null) {
-        if (current.Status.equals(status)) {
+        if (current.status.equals(status)) {
             count++;
                     
         }
         current = current.next;
     }
         return count;
+    }
+    //SEARCH
+    RecordLinkedList search(String keyword) {
+        RecordLinkedList result = new RecordLinkedList();
+        Node current = head;
+        while (current != null) {
+            if (keyword.length() == 0
+                    || containsIgnoreCase(String.valueOf(current.id), keyword)
+                    || containsIgnoreCase(current.itemName, keyword)
+                    || containsIgnoreCase(current.location, keyword)
+                    || containsIgnoreCase(current.status, keyword)) {
+                result.addNode(new Node(current.id, current.itemName, current.location, current.date, current.status, current.claimedBy));
+                
+            }
+            current = current.next;
+        }
+        return result;
+    }
+    
+    private static boolean containsIgnoreCase(String text, String key) {
+        int n = text.length();
+          int m = text.length();
+          if (m == 0) return true;
+          if (m > n) return false;
+          for (int i = 0; i <= n - m; i++){
+              int j = 0;
+              while (j < m && Character.toLowerCase(text.charAt(i + j)) == Character.toLowerCase(key.charAt(j))) {
+                  j++;
+              }
+              if (j ==m ) {
+                  return true;
+              }
+          }
+          return false;
     }
 }
 
