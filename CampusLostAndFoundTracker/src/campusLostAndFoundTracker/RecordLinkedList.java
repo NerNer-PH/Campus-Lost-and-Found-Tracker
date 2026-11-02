@@ -27,7 +27,19 @@ public class RecordLinkedList {
         }
 
     }
-    
+
+    Node head;
+    private int size;
+    private int nextId = 1;
+
+    public int getSize() {
+        return size;
+    }
+
+    public int getNextId() {
+        return nextId;
+    }
+
     
 
 }
