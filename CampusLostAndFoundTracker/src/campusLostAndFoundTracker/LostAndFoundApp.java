@@ -48,7 +48,6 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(900, 600));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -66,6 +65,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setPreferredSize(new java.awt.Dimension(27, 27));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton1, java.awt.BorderLayout.CENTER);
 
         jPanel1.add(jPanel7);
@@ -239,16 +243,32 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+         parentPanel.removeAll();
+        parentPanel.add(reportPage);
+        parentPanel.repaint();
+        parentPanel.revalidate();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+         parentPanel.removeAll();
+        parentPanel.add(lostItemPage);
+        parentPanel.repaint();
+        parentPanel.revalidate();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+         parentPanel.removeAll();
+        parentPanel.add(aboutUsPage);
+        parentPanel.repaint();
+        parentPanel.revalidate();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        parentPanel.removeAll();
+        parentPanel.add(homePage);
+        parentPanel.repaint();
+        parentPanel.revalidate();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
