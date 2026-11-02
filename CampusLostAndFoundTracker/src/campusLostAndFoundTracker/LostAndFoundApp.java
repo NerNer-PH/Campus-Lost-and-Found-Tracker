@@ -43,9 +43,33 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         parentPanel = new javax.swing.JPanel();
         dashboardPage = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         reportLostPage = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
         reportFoundPage = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         recordPage = new javax.swing.JPanel();
@@ -73,7 +97,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.NORTH);
 
-        jPanel1.setBackground(new java.awt.Color(209, 209, 209));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(200, 370));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 5));
 
@@ -181,51 +205,208 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         parentPanel.setPreferredSize(new java.awt.Dimension(600, 0));
         parentPanel.setLayout(new java.awt.CardLayout());
 
-        dashboardPage.setOpaque(false);
+        dashboardPage.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("This is dashboard page");
+        jPanel2.setOpaque(false);
+        jPanel2.setPreferredSize(new java.awt.Dimension(590, 60));
+        jPanel2.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout dashboardPageLayout = new javax.swing.GroupLayout(dashboardPage);
-        dashboardPage.setLayout(dashboardPageLayout);
-        dashboardPageLayout.setHorizontalGroup(
-            dashboardPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardPageLayout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(277, 277, 277))
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel6.setText("Dashboard");
+        jPanel2.add(jLabel6, java.awt.BorderLayout.CENTER);
+
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Welcome to NBSC Lost & Found Tracker System");
+        jPanel2.add(jLabel2, java.awt.BorderLayout.PAGE_END);
+
+        dashboardPage.add(jPanel2);
+
+        jPanel11.setOpaque(false);
+        jPanel11.setPreferredSize(new java.awt.Dimension(590, 200));
+        jPanel11.setLayout(new java.awt.BorderLayout(5, 5));
+
+        jPanel13.setOpaque(false);
+        jPanel13.setPreferredSize(new java.awt.Dimension(295, 200));
+
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel19.setPreferredSize(new java.awt.Dimension(290, 100));
+        jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 5));
+
+        jPanel20.setOpaque(false);
+        jPanel20.setPreferredSize(new java.awt.Dimension(295, 20));
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 295, Short.MAX_VALUE)
         );
-        dashboardPageLayout.setVerticalGroup(
-            dashboardPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardPageLayout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(jLabel2)
-                .addContainerGap(227, Short.MAX_VALUE))
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        jPanel19.add(jPanel20);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel9.setText("0");
+        jLabel9.setPreferredSize(new java.awt.Dimension(295, 25));
+        jPanel19.add(jLabel9);
+
+        jLabel10.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel10.setText("Claimed");
+        jLabel10.setPreferredSize(new java.awt.Dimension(295, 16));
+        jPanel19.add(jLabel10);
+
+        jPanel13.add(jPanel19);
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setPreferredSize(new java.awt.Dimension(290, 100));
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 5));
+
+        jPanel18.setOpaque(false);
+        jPanel18.setPreferredSize(new java.awt.Dimension(295, 20));
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 295, Short.MAX_VALUE)
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel15.add(jPanel18);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel7.setText("0");
+        jLabel7.setPreferredSize(new java.awt.Dimension(295, 25));
+        jPanel15.add(jLabel7);
+
+        jLabel8.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel8.setText("Lost items");
+        jLabel8.setPreferredSize(new java.awt.Dimension(295, 16));
+        jPanel15.add(jLabel8);
+
+        jPanel13.add(jPanel15);
+
+        jPanel11.add(jPanel13, java.awt.BorderLayout.WEST);
+
+        jPanel12.setOpaque(false);
+        jPanel12.setPreferredSize(new java.awt.Dimension(295, 200));
+
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel23.setPreferredSize(new java.awt.Dimension(290, 100));
+        jPanel23.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 5));
+
+        jPanel24.setOpaque(false);
+        jPanel24.setPreferredSize(new java.awt.Dimension(295, 20));
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 295, Short.MAX_VALUE)
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel23.add(jPanel24);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel13.setText("0");
+        jLabel13.setPreferredSize(new java.awt.Dimension(295, 25));
+        jPanel23.add(jLabel13);
+
+        jLabel14.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel14.setText("Found Items");
+        jLabel14.setPreferredSize(new java.awt.Dimension(295, 16));
+        jPanel23.add(jLabel14);
+
+        jPanel12.add(jPanel23);
+
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel21.setPreferredSize(new java.awt.Dimension(290, 100));
+        jPanel21.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 5));
+
+        jPanel22.setOpaque(false);
+        jPanel22.setPreferredSize(new java.awt.Dimension(295, 20));
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 295, Short.MAX_VALUE)
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel21.add(jPanel22);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel11.setText("0");
+        jLabel11.setPreferredSize(new java.awt.Dimension(295, 25));
+        jPanel21.add(jLabel11);
+
+        jLabel12.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel12.setText("Pending");
+        jLabel12.setPreferredSize(new java.awt.Dimension(295, 16));
+        jPanel21.add(jLabel12);
+
+        jPanel12.add(jPanel21);
+
+        jPanel11.add(jPanel12, java.awt.BorderLayout.EAST);
+
+        dashboardPage.add(jPanel11);
 
         parentPanel.add(dashboardPage, "card2");
 
         reportLostPage.setOpaque(false);
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("This is reportlost page");
+        jPanel16.setOpaque(false);
+        jPanel16.setPreferredSize(new java.awt.Dimension(590, 60));
+        jPanel16.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout reportLostPageLayout = new javax.swing.GroupLayout(reportLostPage);
-        reportLostPage.setLayout(reportLostPageLayout);
-        reportLostPageLayout.setHorizontalGroup(
-            reportLostPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportLostPageLayout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(277, 277, 277))
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(1, 11, 28));
+        jLabel15.setText("Report Found Item");
+        jPanel16.add(jLabel15, java.awt.BorderLayout.CENTER);
+
+        reportLostPage.add(jPanel16);
+
+        jPanel14.setPreferredSize(new java.awt.Dimension(590, 100));
+
+        jLabel16.setText("jLabel16");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addComponent(jLabel16)
+                .addContainerGap(389, Short.MAX_VALUE))
         );
-        reportLostPageLayout.setVerticalGroup(
-            reportLostPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportLostPageLayout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(jLabel5)
-                .addContainerGap(227, Short.MAX_VALUE))
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel16)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
+
+        reportLostPage.add(jPanel14);
 
         parentPanel.add(reportLostPage, "card2");
 
@@ -360,12 +541,36 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
