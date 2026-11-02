@@ -41,7 +41,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        parentPanel = new javax.swing.JPanel();
         dashboardPage = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         reportLostPage = new javax.swing.JPanel();
@@ -104,6 +104,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel10.add(jButton4, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel10);
@@ -119,6 +124,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel9.add(jButton3, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel9);
@@ -134,6 +144,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton2, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel8);
@@ -149,6 +164,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton1, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel7);
@@ -157,9 +177,9 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.WEST);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(600, 0));
-        jPanel2.setLayout(new java.awt.CardLayout());
+        parentPanel.setBackground(new java.awt.Color(255, 255, 255));
+        parentPanel.setPreferredSize(new java.awt.Dimension(600, 0));
+        parentPanel.setLayout(new java.awt.CardLayout());
 
         dashboardPage.setOpaque(false);
 
@@ -183,19 +203,19 @@ public class LostAndFoundApp extends javax.swing.JFrame {
                 .addContainerGap(227, Short.MAX_VALUE))
         );
 
-        jPanel2.add(dashboardPage, "card2");
+        parentPanel.add(dashboardPage, "card2");
 
         reportLostPage.setOpaque(false);
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("This is dashboard page");
+        jLabel5.setText("This is reportlost page");
 
         javax.swing.GroupLayout reportLostPageLayout = new javax.swing.GroupLayout(reportLostPage);
         reportLostPage.setLayout(reportLostPageLayout);
         reportLostPageLayout.setHorizontalGroup(
             reportLostPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportLostPageLayout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addContainerGap(205, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(277, 277, 277))
         );
@@ -207,19 +227,20 @@ public class LostAndFoundApp extends javax.swing.JFrame {
                 .addContainerGap(227, Short.MAX_VALUE))
         );
 
-        jPanel2.add(reportLostPage, "card2");
+        parentPanel.add(reportLostPage, "card2");
 
         reportFoundPage.setOpaque(false);
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("This is dashboard page");
+        jLabel4.setText("This is reportfound page");
+        jLabel4.setToolTipText("");
 
         javax.swing.GroupLayout reportFoundPageLayout = new javax.swing.GroupLayout(reportFoundPage);
         reportFoundPage.setLayout(reportFoundPageLayout);
         reportFoundPageLayout.setHorizontalGroup(
             reportFoundPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportFoundPageLayout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addContainerGap(193, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(277, 277, 277))
         );
@@ -231,19 +252,19 @@ public class LostAndFoundApp extends javax.swing.JFrame {
                 .addContainerGap(227, Short.MAX_VALUE))
         );
 
-        jPanel2.add(reportFoundPage, "card2");
+        parentPanel.add(reportFoundPage, "card2");
 
         recordPage.setOpaque(false);
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("This is dashboard page");
+        jLabel3.setText("This is reportpage page");
 
         javax.swing.GroupLayout recordPageLayout = new javax.swing.GroupLayout(recordPage);
         recordPage.setLayout(recordPageLayout);
         recordPageLayout.setHorizontalGroup(
             recordPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, recordPageLayout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addContainerGap(197, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(277, 277, 277))
         );
@@ -255,9 +276,9 @@ public class LostAndFoundApp extends javax.swing.JFrame {
                 .addContainerGap(227, Short.MAX_VALUE))
         );
 
-        jPanel2.add(recordPage, "card2");
+        parentPanel.add(recordPage, "card2");
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.EAST);
+        getContentPane().add(parentPanel, java.awt.BorderLayout.EAST);
 
         jPanel3.setBackground(new java.awt.Color(14, 38, 76));
         jPanel3.setPreferredSize(new java.awt.Dimension(0, 40));
@@ -278,6 +299,34 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(814, 508));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       parentPanel.removeAll();
+        parentPanel.add(dashboardPage);
+        parentPanel.repaint();
+        parentPanel.revalidate();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        parentPanel.removeAll();
+        parentPanel.add(reportLostPage);
+        parentPanel.repaint();
+        parentPanel.revalidate();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        parentPanel.removeAll();
+        parentPanel.add(reportFoundPage);
+        parentPanel.repaint();
+        parentPanel.revalidate();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        parentPanel.removeAll();
+        parentPanel.add(recordPage);
+        parentPanel.repaint();
+        parentPanel.revalidate();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,7 +366,6 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -325,6 +373,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel parentPanel;
     private javax.swing.JPanel recordPage;
     private javax.swing.JPanel reportFoundPage;
     private javax.swing.JPanel reportLostPage;
