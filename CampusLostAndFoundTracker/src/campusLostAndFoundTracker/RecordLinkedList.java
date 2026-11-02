@@ -148,6 +148,15 @@ public class RecordLinkedList {
           }
           return false;
     }
+    //DISPLAY
+    void display() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.id + ":" + current.itemName + "->");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
 }
 
 
