@@ -4,6 +4,7 @@
  */
 package campusLostAndFoundTracker;
 
+import campusLostAndFoundTracker.RecordLinkedList.Node;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.event.DocumentEvent;
@@ -612,8 +613,44 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    // custom Logic
     private void setupLogic(){
+        
+        try {
+            records.loadFromFile(FILE_PATH);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Could not load records: " + e.getMessage(), "File Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        table.setDefaultEditor(Object.class, null);
+        table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        
+        searchBtn.addActionListener(evt -> refreshTable());
+        
+        
+    }
+    
+    private String getSearchKeyword(){
+        return searchBarTxt.getText().trim();
+    }
+    
+    private void refreshTable(){
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
+        
+        RecordLinkedList shown = records.search(getSearchKeyword());
+        Node cur = shown.getHead();
+        while (cur != null) {
+            model.addRow(new Object[]{cur.id, cur.itemName, cur.location, cur.date, cur.status, cur.claimedBy});
+            cur = cur.next;
+            
+            
+        }
+        if (getSearchKeyword().isEmpty()) {
+            jLabel5.setText("All Records");
+        } else {
+            jLabel5.setText("Search Results (" + shown.getSize() + ")");
+        }
         
     }
     
