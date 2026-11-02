@@ -521,6 +521,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         searchBtn.setForeground(new java.awt.Color(255, 255, 255));
         searchBtn.setText("Search");
         searchBtn.setPreferredSize(new java.awt.Dimension(100, 27));
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
         jPanel27.add(searchBtn, java.awt.BorderLayout.EAST);
 
         recordPage.add(jPanel27);
@@ -662,6 +667,10 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private void searchBarTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchBarTxtActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     private boolean isValidDate(String d) {
 

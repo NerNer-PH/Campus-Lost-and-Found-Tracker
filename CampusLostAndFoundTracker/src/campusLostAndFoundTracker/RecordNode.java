@@ -5,7 +5,7 @@
 package campusLostAndFoundTracker;
 
 
-public class Recordnode {
+public class RecordNode {
     
     int id;
     String itemName;
