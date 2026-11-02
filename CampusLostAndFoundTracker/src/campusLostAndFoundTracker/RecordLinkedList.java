@@ -37,15 +37,15 @@ public class RecordLinkedList {
     private int size;
     private int nextId = 1;
 
+    public Node getHead() {
+        return head;
+    }
+
     public int getSize() {
         return size;
     }
 
-    public int getNextId() {
-        return nextId;
-    }
     //ADD
-
     Node add(String itemNum, String location, String date) {
         Node newNode = new Node(nextId, sanitize(itemNum), sanitize(location),
                 sanitize(date), "Unclaimed", "-");
