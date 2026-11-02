@@ -614,47 +614,121 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // custom Logic
-    private void setupLogic(){
-        
+    private void setupLogic() {
+
         try {
             records.loadFromFile(FILE_PATH);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Could not load records: " + e.getMessage(), "File Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         table.setDefaultEditor(Object.class, null);
         table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        
+
         searchBtn.addActionListener(evt -> refreshTable());
-        
-        
+
+        searchBarTxt.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) {
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                if (searchBarTxt.getText().trim().isEmpty()) {
+                    refreshTable();
+                }
+
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+            }
+        });
+
+        claimedBtn.addActionListener(evt -> markSelec);
+
     }
-    
-    private String getSearchKeyword(){
+
+    private String getSearchKeyword() {
         return searchBarTxt.getText().trim();
     }
-    
-    private void refreshTable(){
+
+    private void refreshTable() {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
-        
+
         RecordLinkedList shown = records.search(getSearchKeyword());
         Node cur = shown.getHead();
         while (cur != null) {
             model.addRow(new Object[]{cur.id, cur.itemName, cur.location, cur.date, cur.status, cur.claimedBy});
             cur = cur.next;
-            
-            
+
         }
         if (getSearchKeyword().isEmpty()) {
             jLabel5.setText("All Records");
         } else {
             jLabel5.setText("Search Results (" + shown.getSize() + ")");
         }
-        
+
+    }
+
+    private void refreshDashboard() {
+        int total = records.getSize();
+        int claimed = records.countByStatus("Claimed");
+        int pending = records.countByStatus("Unclaimed");
+
+        jLabel7.setText(String.valueOf(total));     //for Lost Items
+        jLabel9.setText(String.valueOf(claimed));   //for Claimed
+        jLabel11.setText(String.valueOf(pending));  //fpr Pending
+        jLabel13.setText(String.valueOf(total));    //For Found Items
+
+    }
+
+    private void saveRecords() {
+        try {
+            records.saveToFile(FILE_PATH);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Could not save records: " + e.getMessage(), "File Error", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    private int getSelectedId() {
+        int row = table.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a record first.", "No Selection", JOptionPane.WARNING_MESSAGE);
+            return -1;
+        }
+        return Integer.parseInt(table.getValueAt(row, 0).toString());
+    }
+
+    private void markSelectedAsClaimed() {
+        int id = getSelectedId();
+        if (id == 1) {
+            return;
+        }
+        Node node = records.findById(id);
+        if (node == null) {
+            return;
+
+        }
+        if (node.status.equals("Claimed")) {
+            JOptionPane.showMessageDialog(this, "This item is already claimed.");
+            return;
+        }
+        String who = JOptionPane.showInputDialog("Claimed by (name): ");
+        if (who == null || who.trim().isEmpty()) {
+            return;
+
+        }
+        node.status = "Claimed";
+        node.claimedBy = RecordLinkedList.sanitize(who);
+        saveRecords();
+        refreshTable();
+        refreshDashboard();
+
     }
     
     
+
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         parentPanel.removeAll();
         parentPanel.add(dashboardPage);
