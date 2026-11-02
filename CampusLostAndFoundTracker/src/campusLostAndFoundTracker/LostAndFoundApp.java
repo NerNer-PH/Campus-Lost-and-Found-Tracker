@@ -5,6 +5,10 @@
 package campusLostAndFoundTracker;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import java.io.IOException;
 
 /**
  *
@@ -13,12 +17,16 @@ import javax.swing.JOptionPane;
 public class LostAndFoundApp extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LostAndFoundApp.class.getName());
+    private static final String FILE_PATH = "records.txt";
+    private static final String SEARCH_PLACEHOLDER = "Search by ID, item name, location or status...";
+    private final RecordLinkedList records = new RecordLinkedList();
 
     /**
      * Creates new form LostAndFoundApp
      */
     public LostAndFoundApp() {
         initComponents();
+        setupLogic();
     }
 
     /**
@@ -84,16 +92,17 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        searchBarTxt = new javax.swing.JTextField();
+        searchBtn = new javax.swing.JButton();
         jPanel28 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel30 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
         jPanel29 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        claimedBtn = new javax.swing.JButton();
+        unclaimedBtn = new javax.swing.JButton();
+        removeBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,7 +139,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jPanel6.setPreferredSize(new java.awt.Dimension(180, 50));
         jPanel6.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("MENU");
         jPanel6.add(jLabel1, java.awt.BorderLayout.CENTER);
@@ -396,7 +405,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jPanel14.add(jLabel16);
 
         itemNameTxt.setBackground(new java.awt.Color(255, 255, 255));
-        itemNameTxt.setForeground(new java.awt.Color(153, 153, 153));
+        itemNameTxt.setForeground(new java.awt.Color(0, 0, 0));
         itemNameTxt.setToolTipText("");
         itemNameTxt.setPreferredSize(new java.awt.Dimension(590, 30));
         itemNameTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -419,7 +428,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jPanel17.add(jLabel17);
 
         locationFoundTxt.setBackground(new java.awt.Color(255, 255, 255));
-        locationFoundTxt.setForeground(new java.awt.Color(153, 153, 153));
+        locationFoundTxt.setForeground(new java.awt.Color(0, 0, 0));
         locationFoundTxt.setToolTipText("");
         locationFoundTxt.setPreferredSize(new java.awt.Dimension(590, 30));
         jPanel17.add(locationFoundTxt);
@@ -437,7 +446,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jPanel25.add(jLabel18);
 
         dateFoundTxt.setBackground(new java.awt.Color(255, 255, 255));
-        dateFoundTxt.setForeground(new java.awt.Color(153, 153, 153));
+        dateFoundTxt.setForeground(new java.awt.Color(0, 0, 0));
         dateFoundTxt.setPreferredSize(new java.awt.Dimension(590, 30));
         jPanel25.add(dateFoundTxt);
 
@@ -495,13 +504,24 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Search Records");
         jLabel4.setToolTipText("");
-        jPanel27.add(jLabel4, java.awt.BorderLayout.PAGE_START);
+        jPanel27.add(jLabel4, java.awt.BorderLayout.NORTH);
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField4.setText("Search by ID, item name, location or status...");
-        jTextField4.setPreferredSize(new java.awt.Dimension(74, 30));
-        jPanel27.add(jTextField4, java.awt.BorderLayout.PAGE_END);
+        searchBarTxt.setBackground(new java.awt.Color(255, 255, 255));
+        searchBarTxt.setForeground(new java.awt.Color(0, 0, 0));
+        searchBarTxt.setPreferredSize(new java.awt.Dimension(490, 30));
+        searchBarTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBarTxtActionPerformed(evt);
+            }
+        });
+        jPanel27.add(searchBarTxt, java.awt.BorderLayout.WEST);
+
+        searchBtn.setBackground(new java.awt.Color(14, 38, 76));
+        searchBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        searchBtn.setForeground(new java.awt.Color(255, 255, 255));
+        searchBtn.setText("Search");
+        searchBtn.setPreferredSize(new java.awt.Dimension(100, 27));
+        jPanel27.add(searchBtn, java.awt.BorderLayout.EAST);
 
         recordPage.add(jPanel27);
 
@@ -521,8 +541,8 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jPanel30.setPreferredSize(new java.awt.Dimension(590, 175));
         jPanel30.setLayout(new java.awt.BorderLayout());
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setBackground(new java.awt.Color(255, 255, 255));
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -530,7 +550,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
                 "ID", "Item Name", "Location Found", "Date Found", "Status", "Claimed By"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table);
 
         jPanel30.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -540,23 +560,26 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jPanel29.setPreferredSize(new java.awt.Dimension(590, 30));
         jPanel29.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 0));
 
-        jButton6.setBackground(new java.awt.Color(14, 38, 76));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton6.setText("Mark as Claimed");
-        jButton6.setPreferredSize(new java.awt.Dimension(185, 30));
-        jPanel29.add(jButton6);
+        claimedBtn.setBackground(new java.awt.Color(14, 38, 76));
+        claimedBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        claimedBtn.setForeground(new java.awt.Color(255, 255, 255));
+        claimedBtn.setText("Mark as Claimed");
+        claimedBtn.setPreferredSize(new java.awt.Dimension(185, 30));
+        jPanel29.add(claimedBtn);
 
-        jButton7.setBackground(new java.awt.Color(102, 102, 102));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton7.setText("Mark as Unclaimed");
-        jButton7.setPreferredSize(new java.awt.Dimension(185, 30));
-        jPanel29.add(jButton7);
+        unclaimedBtn.setBackground(new java.awt.Color(102, 102, 102));
+        unclaimedBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        unclaimedBtn.setForeground(new java.awt.Color(255, 255, 255));
+        unclaimedBtn.setText("Mark as Unclaimed");
+        unclaimedBtn.setPreferredSize(new java.awt.Dimension(185, 30));
+        jPanel29.add(unclaimedBtn);
 
-        jButton8.setBackground(new java.awt.Color(204, 0, 0));
-        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton8.setText("Remove Record");
-        jButton8.setPreferredSize(new java.awt.Dimension(185, 30));
-        jPanel29.add(jButton8);
+        removeBtn.setBackground(new java.awt.Color(204, 0, 0));
+        removeBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        removeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        removeBtn.setText("Remove Record");
+        removeBtn.setPreferredSize(new java.awt.Dimension(185, 30));
+        jPanel29.add(removeBtn);
 
         recordPage.add(jPanel29);
 
@@ -584,6 +607,12 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void setupLogic(){
+        
+    }
+    
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         parentPanel.removeAll();
         parentPanel.add(dashboardPage);
@@ -623,13 +652,16 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         if (!isValidDate(date)) {
 
             JOptionPane.showMessageDialog(this, "Invalid date. Use MM-DD-YYYY (e.g. 11-02-2026)", "Invalid Date", JOptionPane.WARNING_MESSAGE);
+            return;
 
         }
-        
-        
 
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void searchBarTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBarTxtActionPerformed
 
     private boolean isValidDate(String d) {
 
@@ -670,6 +702,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton claimedBtn;
     private javax.swing.JPanel dashboardPage;
     private javax.swing.JTextField dateFoundTxt;
     private javax.swing.JTextField itemNameTxt;
@@ -677,9 +710,6 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -729,11 +759,14 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField locationFoundTxt;
     private javax.swing.JPanel parentPanel;
     private javax.swing.JPanel recordPage;
+    private javax.swing.JButton removeBtn;
     private javax.swing.JPanel reportLostPage;
+    private javax.swing.JTextField searchBarTxt;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JTable table;
+    private javax.swing.JButton unclaimedBtn;
     // End of variables declaration//GEN-END:variables
 }
