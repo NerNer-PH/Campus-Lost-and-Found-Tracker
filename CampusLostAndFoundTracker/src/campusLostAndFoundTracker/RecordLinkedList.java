@@ -40,6 +40,29 @@ public class RecordLinkedList {
         return nextId;
     }
 
-    
-
+    Node add(String itemNum, String location, String date) {
+        Node newNode = new Node(nextId, sanitize(itemNum), sanitize(location),
+                sanitize(date), "Unclaimed", "-");
+        addNode(newNode);
+        return newNode;
+    }
+    static String sanitize(String s) {
+        return s.trim().replace('|', '/');
+    }
+    private void addNode(Node newNode) {
+        newNode.next = null;
+        if (head ==null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+        size++;
+        if (newNode.id >= nextId) {
+            nextId = newNode.id +1;
+        }
+    }
 }
