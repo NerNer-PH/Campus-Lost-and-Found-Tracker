@@ -28,247 +28,256 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
-        parentPanel = new javax.swing.JPanel();
-        homePage = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        reportPage = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        dashboardPage = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        lostItemPage = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        aboutUsPage = new javax.swing.JPanel();
+        reportLostPage = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        reportFoundPage = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        recordPage = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setPreferredSize(new java.awt.Dimension(100, 600));
-        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+        jPanel5.setBackground(new java.awt.Color(14, 38, 76));
+        jPanel5.setPreferredSize(new java.awt.Dimension(800, 80));
+        jPanel5.setRequestFocusEnabled(false);
 
-        jPanel7.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel7.setPreferredSize(new java.awt.Dimension(100, 80));
-        jPanel7.setLayout(new java.awt.BorderLayout());
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 80, Short.MAX_VALUE)
+        );
 
-        jButton1.setFont(new java.awt.Font("Agency FB", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("HOME");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setPreferredSize(new java.awt.Dimension(27, 27));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanel5, java.awt.BorderLayout.NORTH);
 
-        jPanel1.add(jPanel7);
+        jPanel1.setBackground(new java.awt.Color(209, 209, 209));
+        jPanel1.setPreferredSize(new java.awt.Dimension(200, 370));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 5));
 
-        jPanel8.setBackground(new java.awt.Color(102, 102, 255));
-        jPanel8.setPreferredSize(new java.awt.Dimension(100, 80));
-        jPanel8.setLayout(new java.awt.BorderLayout());
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setOpaque(false);
+        jPanel4.setPreferredSize(new java.awt.Dimension(180, 380));
+        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
 
-        jButton2.setFont(new java.awt.Font("Agency FB", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("REPORT ITEM");
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setPreferredSize(new java.awt.Dimension(27, 27));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jButton2, java.awt.BorderLayout.CENTER);
+        jPanel6.setOpaque(false);
+        jPanel6.setPreferredSize(new java.awt.Dimension(180, 50));
+        jPanel6.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.add(jPanel8);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("MENU");
+        jPanel6.add(jLabel1, java.awt.BorderLayout.CENTER);
 
-        jPanel9.setBackground(new java.awt.Color(51, 51, 255));
-        jPanel9.setPreferredSize(new java.awt.Dimension(100, 80));
-        jPanel9.setLayout(new java.awt.BorderLayout());
+        jPanel4.add(jPanel6);
 
-        jButton3.setFont(new java.awt.Font("Agency FB", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("LOST ITEMS LIST");
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setPreferredSize(new java.awt.Dimension(27, 27));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jButton3, java.awt.BorderLayout.CENTER);
-
-        jPanel1.add(jPanel9);
-
-        jPanel10.setBackground(new java.awt.Color(0, 0, 255));
-        jPanel10.setPreferredSize(new java.awt.Dimension(100, 80));
+        jPanel10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel10.setOpaque(false);
+        jPanel10.setPreferredSize(new java.awt.Dimension(180, 50));
         jPanel10.setLayout(new java.awt.BorderLayout());
 
-        jButton4.setFont(new java.awt.Font("Agency FB", 1, 12)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("ABOUT US");
-        jButton4.setBorderPainted(false);
+        jButton4.setText("Dashboard");
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.setPreferredSize(new java.awt.Dimension(27, 27));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel10.add(jButton4, java.awt.BorderLayout.CENTER);
 
-        jPanel1.add(jPanel10);
+        jPanel4.add(jPanel10);
+
+        jPanel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel9.setOpaque(false);
+        jPanel9.setPreferredSize(new java.awt.Dimension(180, 50));
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setText("Report Lost");
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel9.add(jButton3, java.awt.BorderLayout.CENTER);
+
+        jPanel4.add(jPanel9);
+
+        jPanel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel8.setOpaque(false);
+        jPanel8.setPreferredSize(new java.awt.Dimension(180, 50));
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Report Found");
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel8.add(jButton2, java.awt.BorderLayout.CENTER);
+
+        jPanel4.add(jPanel8);
+
+        jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel7.setOpaque(false);
+        jPanel7.setPreferredSize(new java.awt.Dimension(180, 50));
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Records");
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel7.add(jButton1, java.awt.BorderLayout.CENTER);
+
+        jPanel4.add(jPanel7);
+
+        jPanel1.add(jPanel4);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.WEST);
 
-        parentPanel.setBackground(new java.awt.Color(255, 255, 153));
-        parentPanel.setPreferredSize(new java.awt.Dimension(800, 600));
-        parentPanel.setLayout(new java.awt.CardLayout(5, 5));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(600, 0));
+        jPanel2.setLayout(new java.awt.CardLayout());
 
-        homePage.setOpaque(false);
-
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("This is the homepage");
-
-        javax.swing.GroupLayout homePageLayout = new javax.swing.GroupLayout(homePage);
-        homePage.setLayout(homePageLayout);
-        homePageLayout.setHorizontalGroup(
-            homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePageLayout.createSequentialGroup()
-                .addContainerGap(362, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(242, 242, 242))
-        );
-        homePageLayout.setVerticalGroup(
-            homePageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(homePageLayout.createSequentialGroup()
-                .addGap(218, 218, 218)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
-        );
-
-        parentPanel.add(homePage, "card2");
-
-        reportPage.setOpaque(false);
+        dashboardPage.setOpaque(false);
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("this is the report page");
+        jLabel2.setText("This is dashboard page");
 
-        javax.swing.GroupLayout reportPageLayout = new javax.swing.GroupLayout(reportPage);
-        reportPage.setLayout(reportPageLayout);
-        reportPageLayout.setHorizontalGroup(
-            reportPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportPageLayout.createSequentialGroup()
-                .addContainerGap(346, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(258, 258, 258))
+        javax.swing.GroupLayout dashboardPageLayout = new javax.swing.GroupLayout(dashboardPage);
+        dashboardPage.setLayout(dashboardPageLayout);
+        dashboardPageLayout.setHorizontalGroup(
+            dashboardPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dashboardPageLayout.createSequentialGroup()
+                .addContainerGap(200, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(277, 277, 277))
         );
-        reportPageLayout.setVerticalGroup(
-            reportPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(reportPageLayout.createSequentialGroup()
-                .addGap(194, 194, 194)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
-        );
-
-        parentPanel.add(reportPage, "card3");
-
-        lostItemPage.setOpaque(false);
-
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("This is the lostItemsPage");
-
-        javax.swing.GroupLayout lostItemPageLayout = new javax.swing.GroupLayout(lostItemPage);
-        lostItemPage.setLayout(lostItemPageLayout);
-        lostItemPageLayout.setHorizontalGroup(
-            lostItemPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lostItemPageLayout.createSequentialGroup()
-                .addContainerGap(316, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(288, 288, 288))
-        );
-        lostItemPageLayout.setVerticalGroup(
-            lostItemPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lostItemPageLayout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(231, Short.MAX_VALUE))
+        dashboardPageLayout.setVerticalGroup(
+            dashboardPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dashboardPageLayout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel2)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
-        parentPanel.add(lostItemPage, "card4");
+        jPanel2.add(dashboardPage, "card2");
 
-        aboutUsPage.setOpaque(false);
+        reportLostPage.setOpaque(false);
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("This is dashboard page");
+
+        javax.swing.GroupLayout reportLostPageLayout = new javax.swing.GroupLayout(reportLostPage);
+        reportLostPage.setLayout(reportLostPageLayout);
+        reportLostPageLayout.setHorizontalGroup(
+            reportLostPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportLostPageLayout.createSequentialGroup()
+                .addContainerGap(200, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(277, 277, 277))
+        );
+        reportLostPageLayout.setVerticalGroup(
+            reportLostPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportLostPageLayout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel5)
+                .addContainerGap(227, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(reportLostPage, "card2");
+
+        reportFoundPage.setOpaque(false);
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("This is the AboutUs Page");
+        jLabel4.setText("This is dashboard page");
 
-        javax.swing.GroupLayout aboutUsPageLayout = new javax.swing.GroupLayout(aboutUsPage);
-        aboutUsPage.setLayout(aboutUsPageLayout);
-        aboutUsPageLayout.setHorizontalGroup(
-            aboutUsPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutUsPageLayout.createSequentialGroup()
-                .addContainerGap(309, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(295, 295, 295))
+        javax.swing.GroupLayout reportFoundPageLayout = new javax.swing.GroupLayout(reportFoundPage);
+        reportFoundPage.setLayout(reportFoundPageLayout);
+        reportFoundPageLayout.setHorizontalGroup(
+            reportFoundPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, reportFoundPageLayout.createSequentialGroup()
+                .addContainerGap(200, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(277, 277, 277))
         );
-        aboutUsPageLayout.setVerticalGroup(
-            aboutUsPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aboutUsPageLayout.createSequentialGroup()
-                .addGap(231, 231, 231)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(231, Short.MAX_VALUE))
+        reportFoundPageLayout.setVerticalGroup(
+            reportFoundPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reportFoundPageLayout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel4)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
-        parentPanel.add(aboutUsPage, "card5");
+        jPanel2.add(reportFoundPage, "card2");
 
-        getContentPane().add(parentPanel, java.awt.BorderLayout.EAST);
+        recordPage.setOpaque(false);
 
-        setSize(new java.awt.Dimension(914, 608));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("This is dashboard page");
+
+        javax.swing.GroupLayout recordPageLayout = new javax.swing.GroupLayout(recordPage);
+        recordPage.setLayout(recordPageLayout);
+        recordPageLayout.setHorizontalGroup(
+            recordPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, recordPageLayout.createSequentialGroup()
+                .addContainerGap(200, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(277, 277, 277))
+        );
+        recordPageLayout.setVerticalGroup(
+            recordPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recordPageLayout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel3)
+                .addContainerGap(227, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(recordPage, "card2");
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.EAST);
+
+        jPanel3.setBackground(new java.awt.Color(14, 38, 76));
+        jPanel3.setPreferredSize(new java.awt.Dimension(0, 40));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel3, java.awt.BorderLayout.SOUTH);
+
+        setSize(new java.awt.Dimension(814, 508));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         parentPanel.removeAll();
-        parentPanel.add(reportPage);
-        parentPanel.repaint();
-        parentPanel.revalidate();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         parentPanel.removeAll();
-        parentPanel.add(lostItemPage);
-        parentPanel.repaint();
-        parentPanel.revalidate();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         parentPanel.removeAll();
-        parentPanel.add(aboutUsPage);
-        parentPanel.repaint();
-        parentPanel.revalidate();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        parentPanel.removeAll();
-        parentPanel.add(homePage);
-        parentPanel.repaint();
-        parentPanel.revalidate();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,8 +305,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel aboutUsPage;
-    private javax.swing.JPanel homePage;
+    private javax.swing.JPanel dashboardPage;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -306,13 +314,19 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPanel lostItemPage;
-    private javax.swing.JPanel parentPanel;
-    private javax.swing.JPanel reportPage;
+    private javax.swing.JPanel recordPage;
+    private javax.swing.JPanel reportFoundPage;
+    private javax.swing.JPanel reportLostPage;
     // End of variables declaration//GEN-END:variables
 }
