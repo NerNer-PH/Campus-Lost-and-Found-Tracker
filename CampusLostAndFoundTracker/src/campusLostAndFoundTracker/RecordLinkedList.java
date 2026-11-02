@@ -46,12 +46,14 @@ public class RecordLinkedList {
         addNode(newNode);
         return newNode;
     }
+
     static String sanitize(String s) {
         return s.trim().replace('|', '/');
     }
+
     private void addNode(Node newNode) {
         newNode.next = null;
-        if (head ==null) {
+        if (head == null) {
             head = newNode;
         } else {
             Node current = head;
@@ -62,7 +64,31 @@ public class RecordLinkedList {
         }
         size++;
         if (newNode.id >= nextId) {
-            nextId = newNode.id +1;
+            nextId = newNode.id + 1;
         }
     }
+
+    //removes the record with the given ID
+    boolean removeById(int id) {
+        if (head == null) {
+            return false;
+        }
+        if (head.id == id) {
+            head = head.next;
+            size--;
+            return true;
+        }
+        Node current = head;
+        while (current.next != null) {
+            if (current.next.id == id) {
+                current.next = current.next.next;
+                size--;
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
 }
+
+
