@@ -4,12 +4,14 @@
  */
 package campusLostAndFoundTracker;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo
  */
 public class LostAndFoundApp extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LostAndFoundApp.class.getName());
 
     /**
@@ -68,13 +70,13 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        itemNameTxt = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        locationFoundTxt = new javax.swing.JTextField();
         jPanel25 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        dateFoundTxt = new javax.swing.JTextField();
         jPanel26 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         recordPage = new javax.swing.JPanel();
@@ -393,16 +395,16 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jLabel16.setPreferredSize(new java.awt.Dimension(590, 20));
         jPanel14.add(jLabel16);
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("Enter Item Name");
-        jTextField1.setPreferredSize(new java.awt.Dimension(590, 30));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        itemNameTxt.setBackground(new java.awt.Color(255, 255, 255));
+        itemNameTxt.setForeground(new java.awt.Color(153, 153, 153));
+        itemNameTxt.setToolTipText("");
+        itemNameTxt.setPreferredSize(new java.awt.Dimension(590, 30));
+        itemNameTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                itemNameTxtActionPerformed(evt);
             }
         });
-        jPanel14.add(jTextField1);
+        jPanel14.add(itemNameTxt);
 
         reportLostPage.add(jPanel14);
 
@@ -416,12 +418,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jLabel17.setPreferredSize(new java.awt.Dimension(590, 20));
         jPanel17.add(jLabel17);
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("Enter Location Found");
-        jTextField2.setToolTipText("");
-        jTextField2.setPreferredSize(new java.awt.Dimension(590, 30));
-        jPanel17.add(jTextField2);
+        locationFoundTxt.setBackground(new java.awt.Color(255, 255, 255));
+        locationFoundTxt.setForeground(new java.awt.Color(153, 153, 153));
+        locationFoundTxt.setToolTipText("");
+        locationFoundTxt.setPreferredSize(new java.awt.Dimension(590, 30));
+        jPanel17.add(locationFoundTxt);
 
         reportLostPage.add(jPanel17);
 
@@ -435,11 +436,10 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jLabel18.setPreferredSize(new java.awt.Dimension(590, 20));
         jPanel25.add(jLabel18);
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField3.setText("MM-DD-YYYY");
-        jTextField3.setPreferredSize(new java.awt.Dimension(590, 30));
-        jPanel25.add(jTextField3);
+        dateFoundTxt.setBackground(new java.awt.Color(255, 255, 255));
+        dateFoundTxt.setForeground(new java.awt.Color(153, 153, 153));
+        dateFoundTxt.setPreferredSize(new java.awt.Dimension(590, 30));
+        jPanel25.add(dateFoundTxt);
 
         reportLostPage.add(jPanel25);
 
@@ -585,7 +585,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       parentPanel.removeAll();
+        parentPanel.removeAll();
         parentPanel.add(dashboardPage);
         parentPanel.repaint();
         parentPanel.revalidate();
@@ -605,13 +605,44 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         parentPanel.revalidate();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void itemNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNameTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_itemNameTxtActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        String name = itemNameTxt.getText();
+        String location = locationFoundTxt.getText();
+        String date = dateFoundTxt.getText();
+
+        if (name.isEmpty() || location.isEmpty() || date.isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Missing input", JOptionPane.WARNING_MESSAGE);
+            return;
+
+        }
+        if (!isValidDate(date)) {
+
+            JOptionPane.showMessageDialog(this, "Invalid date. Use MM-DD-YYYY (e.g. 11-02-2026)", "Invalid Date", JOptionPane.WARNING_MESSAGE);
+
+        }
+        
+        
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private boolean isValidDate(String d) {
+
+        try {
+            java.time.format.DateTimeFormatter f = java.time.format.DateTimeFormatter.ofPattern("MM-dd-uuuu")
+                    .withResolverStyle(java.time.format.ResolverStyle.STRICT);
+            java.time.LocalDate date = java.time.LocalDate.parse(d, f);
+            return !date.isAfter(java.time.LocalDate.now());
+        } catch (java.time.format.DateTimeParseException e) {
+            return false;
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -640,6 +671,8 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel dashboardPage;
+    private javax.swing.JTextField dateFoundTxt;
+    private javax.swing.JTextField itemNameTxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -697,10 +730,8 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField locationFoundTxt;
     private javax.swing.JPanel parentPanel;
     private javax.swing.JPanel recordPage;
     private javax.swing.JPanel reportLostPage;
