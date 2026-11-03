@@ -20,6 +20,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
     public LostAndFoundApp() {
         initComponents();
         setupLogic();
+        setTitle("NBSC Lost & Found Tracker");
     }
 
     /**
@@ -436,7 +437,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
         parentPanel.add(dashboardPage, "card2");
 
-        reportLostPage.setBackground(new java.awt.Color(204, 204, 204));
+        reportLostPage.setBackground(new java.awt.Color(230, 230, 230));
 
         jPanel16.setOpaque(false);
         jPanel16.setPreferredSize(new java.awt.Dimension(590, 30));
@@ -537,7 +538,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
 
         parentPanel.add(reportLostPage, "card2");
 
-        recordPage.setBackground(new java.awt.Color(204, 204, 204));
+        recordPage.setBackground(new java.awt.Color(230, 230, 230));
 
         jPanel8.setOpaque(false);
         jPanel8.setPreferredSize(new java.awt.Dimension(590, 40));
@@ -601,7 +602,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jPanel30.setPreferredSize(new java.awt.Dimension(590, 175));
         jPanel30.setLayout(new java.awt.BorderLayout());
 
+        jScrollPane1.setBackground(new java.awt.Color(230, 230, 230));
+        jScrollPane1.setForeground(new java.awt.Color(1, 11, 28));
+
         table.setBackground(new java.awt.Color(255, 255, 255));
+        table.setForeground(new java.awt.Color(1, 11, 28));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -610,6 +615,11 @@ public class LostAndFoundApp extends javax.swing.JFrame {
                 "ID", "Item Name", "Location Found", "Date Found", "Status", "Claimed By"
             }
         ));
+        table.setGridColor(new java.awt.Color(204, 204, 204));
+        table.setOpaque(false);
+        table.setSelectionBackground(new java.awt.Color(14, 38, 76));
+        table.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        table.setShowGrid(true);
         jScrollPane1.setViewportView(table);
 
         jPanel30.add(jScrollPane1, java.awt.BorderLayout.CENTER);
