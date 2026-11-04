@@ -528,6 +528,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("SUBMIT");
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setPreferredSize(new java.awt.Dimension(590, 40));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -647,6 +648,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         claimedBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         claimedBtn.setForeground(new java.awt.Color(255, 255, 255));
         claimedBtn.setText("Mark as Claimed");
+        claimedBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         claimedBtn.setPreferredSize(new java.awt.Dimension(185, 30));
         claimedBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -659,6 +661,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         unclaimedBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         unclaimedBtn.setForeground(new java.awt.Color(255, 255, 255));
         unclaimedBtn.setText("Mark as Unclaimed");
+        unclaimedBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         unclaimedBtn.setPreferredSize(new java.awt.Dimension(185, 30));
         unclaimedBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -671,6 +674,7 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         removeBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         removeBtn.setForeground(new java.awt.Color(255, 255, 255));
         removeBtn.setText("Remove Record");
+        removeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         removeBtn.setPreferredSize(new java.awt.Dimension(185, 30));
         removeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
