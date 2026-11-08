@@ -623,10 +623,10 @@ public class LostAndFoundApp extends javax.swing.JFrame {
         table.setShowGrid(true);
         jScrollPane1.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
-            table.getColumnModel().getColumn(0).setMinWidth(25);
-            table.getColumnModel().getColumn(0).setMaxWidth(25);
-            table.getColumnModel().getColumn(1).setMinWidth(150);
-            table.getColumnModel().getColumn(1).setMaxWidth(150);
+            table.getColumnModel().getColumn(0).setMinWidth(30);
+            table.getColumnModel().getColumn(0).setMaxWidth(30);
+            table.getColumnModel().getColumn(1).setMinWidth(140);
+            table.getColumnModel().getColumn(1).setMaxWidth(140);
             table.getColumnModel().getColumn(2).setMinWidth(135);
             table.getColumnModel().getColumn(2).setMaxWidth(135);
             table.getColumnModel().getColumn(3).setMinWidth(80);
